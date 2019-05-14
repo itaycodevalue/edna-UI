@@ -10,6 +10,7 @@ import { AppBodyComponent } from "./components/app-body/app-body.component";
 import { TeacherShellComponent } from './components/teacher-shell/teacher-shell.component';
 import { StudentShellComponent } from './components/student-shell/student-shell.component';
 const routes: Routes = [
+  { path: "", component: TeacherShellComponent },
   { path: "en", component: TeacherShellComponent, canActivate: [AppGuard] },
   { path: "student", component: StudentShellComponent },
   { path: "**", component: PageNotFoundComponent }
