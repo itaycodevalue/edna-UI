@@ -1,6 +1,7 @@
 .header {
   background-color: #4786ed;
   height: 6em;
+
   color: white;
   display:flex;
   flex-direction: row;
@@ -10,5 +11,28 @@
 .mat-raised-button{
   widows: 18em;
 }
+
+.course-title{
+  white-space: nowrap;
+  width: 66%;
+  font-size: 2vw;
+  margin:0 1em;
+  overflow: hidden;
+}
+
+.course-messages{
+  cursor: pointer;
+  
+  font-size: 1vw;
+  margin:0 1em;
+  overflow: hidden;
+}
+
+.course-messages:hover{
+  border:.1em #d6d8db solid;
+}
+
+
+
 
 

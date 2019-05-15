@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { Select } from '@ngxs/store';
+import { AppStartStateSelectors } from 'src/app/store/app-start/app-start.selectors';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -8,11 +10,15 @@ import { Store } from '@ngxs/store';
   styleUrls: ['./student-shell.component.css']
 })
 export class StudentShellComponent implements OnInit {
-
-  constructor(private store: Store) { }
+  isReady: boolean;
+  @Select(AppStartStateSelectors.getUsername) username$: Observable<string>;
+  constructor() { }
 
   ngOnInit() {
-
+    this.isReady = false;
+    this.username$.subscribe(data => {
+      if (data) { this.isReady = true; }
+    })
   }
 
 }

@@ -1,0 +1,15 @@
+.content-container{
+    margin: 1em;
+
+}
+
+.title-section{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.user-name{
+    font-weight: 600;
+}

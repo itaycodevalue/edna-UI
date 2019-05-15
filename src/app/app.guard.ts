@@ -30,7 +30,10 @@ export class AppGuard implements CanActivate {
         if (response) {
           this.router.navigateByUrl("/student");
         }
-        this.router.navigateByUrl("/");
+        else {
+          this.router.navigateByUrl("/");
+        }
+
         return !response;
       })
     );

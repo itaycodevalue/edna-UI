@@ -25,16 +25,21 @@ export class AppStartState {
     constructor(private localStorageService: LocalStorageService, private assignmentsService: AssignmentsService, private store: Store, private http: HttpClient, private memberService: MemberService) { }
     @Action(GetAssignmentInitialData)
     getAssignmentInitialData(ctx: StateContext<AppStartStateModel>) {
-        return this.assignmentsService.getAssignmentData(this.localStorageService.getItem("assignmentGuid")).pipe(
-            tap(data => {
-                console.log(data)
-                this.store.dispatch(new GetCourseName(data.courseName));
-                this.store.dispatch(new SetAssignmentName(data.ltiName))
-            }),
-            catchError(err =>
-                of(ctx.patchState({ error: err }))
+        if (ctx.getState().courseName) {
+            return ctx.getState();
+        }
+        else {
+            return this.assignmentsService.getAssignmentData(this.localStorageService.getItem("assignmentGuid")).pipe(
+                tap(data => {
+                    console.log(data)
+                    this.store.dispatch(new GetCourseName(data.courseName));
+                    this.store.dispatch(new SetAssignmentName(data.ltiName))
+                }),
+                catchError(err =>
+                    of(ctx.patchState({ error: err }))
+                )
             )
-        )
+        }
     }
     @Action(SetAssignmentName)
     setAssignmentName({ patchState }: StateContext<AppStartStateModel>,

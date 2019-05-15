@@ -1,7 +1,8 @@
-<div class="header">
+<!-- <div class="header">
   <div style="display: inherit;align-items: center">
-    <div style="font-size: 5em">{{courseName$ | async}}</div>
-    <div style="margin:0 1em;font-size: 2em">{{courseName$ | async}} <span i18n="@@MESSAGES">Messages</span></div>
+    <div style="font-size: 5em">C# Advanced The Best Course Ever</div>
+    <div style="margin:0 1em;font-size: 2em">C# Advanced The Best Course Ever <span i18n="@@MESSAGES">Messages</span>
+    </div>
   </div>
   <div style="display: inherit;align-items: center">
     <div style="margin:0 1em"><button mat-raised-button color="primary" i18n="@@EDUCATION_HUB">education hub</button>
@@ -9,7 +10,26 @@
     <div style="margin:0 1em">
       <mat-icon>notifications</mat-icon>
     </div>
-    <div>{{username$ | async}}</div>
+    <div>Itay Yaffe</div>
+    <div style="margin:0 1em">
+      <mat-icon>account_circle</mat-icon>
+    </div>
+  </div>
+</div> -->
+<div class="header" *ngIf="isReady">
+  <div style=" display: inherit;align-items: center;position: relative;">
+    <div class="course-title">{{courseName$ | async}}</div>
+    <div style="margin:0 1em" class="course-messages">
+      {{courseName$ | async}} <span i18n="@@MESSAGES">Messages</span>
+    </div>
+  </div>
+  <div style="position: relative;display: inherit;align-items: center">
+    <div style="margin:0 1em"><button mat-raised-button color="primary" i18n="@@EDUCATION_HUB">education hub</button>
+    </div>
+    <div style="margin:0 1em">
+      <mat-icon>notifications</mat-icon>
+    </div>
+    <div>Itay Yaffe</div>
     <div style="margin:0 1em">
       <mat-icon>account_circle</mat-icon>
     </div>
